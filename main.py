@@ -37,20 +37,25 @@ def start_game(game_path: str):
         exit(return_code)
 
 
+# downloading file info
 link = 'https://drive.usercontent.google.com/download?id=1IGENwFzLm8bBEboISadYSNEdxbnjz1fH&export=download&authuser=0'
 file = 'settings.reg'
 game_path = 'D:\\SteamLibrary\\steamapps\\common\\Goose Goose Duck'
 
+# input game path if needed
 input_game_path = input(f'Type path to game directory (if path is "{game_path}" just press enter): ')
 if input_game_path:
     game_path = input_game_path
 
+# downloading
 download(game_path, link, file)
 
+# editing registry
 print('Editing settings...')
 edit_settings(f'{game_path}\\{file}')
 print(green('Settings edited'))
 
+# launching game
 print('Playing game...')
 start_game(game_path)
 print(green('Quit'))
