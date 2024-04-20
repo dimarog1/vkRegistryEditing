@@ -11,10 +11,16 @@ def green(string: str):
 
 def download(game_path: str, link: str, file: str):
     file_path = f'{game_path}\\{file}'
+    if os.path.exists(file_path):
+        use = input('Setting file is already installed. Do you want to use it? y/(n or else): ')
+        if use == 'y':
+            return
+    print('Downloading file...')
     return_code = os.system(f'curl -o "{file_path}" "{link}?id=1IGENwFzLm8bBEboISadYSNEdxbnjz1fH&export=download&authuser=0&confirm=t" --no-progress-meter')
     if return_code:
         print(red('ERROR: Something went wrong while downloading the file.'))
         exit(return_code)
+    print(green('File downloaded'))
 
 
 def edit_settings(file_path: str):
@@ -39,9 +45,7 @@ input_game_path = input(f'Type path to game directory (if path is "{game_path}" 
 if input_game_path:
     game_path = input_game_path
 
-print('Downloading file...')
 download(game_path, link, file)
-print(green('File downloaded'))
 
 print('Editing settings...')
 edit_settings(f'{game_path}\\{file}')
