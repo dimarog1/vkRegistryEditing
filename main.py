@@ -38,7 +38,7 @@ def start_game(game_path: str):
 
 
 # downloading file info
-link = 'https://drive.usercontent.google.com/download?id=1IGENwFzLm8bBEboISadYSNEdxbnjz1fH&export=download&authuser=0'
+link = 'https://drive.usercontent.google.com/download'
 file = 'settings.reg'
 game_path = 'D:\\SteamLibrary\\steamapps\\common\\Goose Goose Duck'
 
